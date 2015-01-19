@@ -1,0 +1,14 @@
+                    ~ Getting started with the LLVM C API ~
+
+See accompanying blog post at https://pauladamsmith.com/blog/2015/01/how-to-get-started-with-llvm-c-api.html
+
+Tested with LLVM 3.5.0. http://llvm.org/releases/download.html#3.5
+
+To use, download the LLVM source code, unpack, and follow the instructions for
+building and installing.
+
+Once LLVM is installed, clone this repo, cd to it, and run:
+
+    $ make
+    $ ./sum 42 99
+    141
