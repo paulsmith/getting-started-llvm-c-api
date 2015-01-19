@@ -39,11 +39,11 @@ int main(int argc, char const *argv[]) {
     LLVMLinkInJIT();
     LLVMInitializeNativeTarget();
     if (LLVMCreateExecutionEngineForModule(&engine, mod, &error) != 0) {
-        fprintf(stderr, "create ee failed\n");
+        fprintf(stderr, "failed to create execution engine\n");
         abort();
     }
     if (error) {
-        fprintf(stderr, "err: %s\n", error);
+        fprintf(stderr, "error: %s\n", error);
         LLVMDisposeMessage(error);
         exit(EXIT_FAILURE);
     }
