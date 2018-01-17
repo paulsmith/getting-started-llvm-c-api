@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef int32_t (*funcPtr_t) (int32_t, int32_t);
+
 int main(int argc, char const *argv[]) {
     LLVMModuleRef mod = LLVMModuleCreateWithName("my_module");
 
@@ -58,8 +60,7 @@ int main(int argc, char const *argv[]) {
     int32_t y = strtoll(argv[2], NULL, 10);
 
     {
-        int32_t (*funcPtr) (int32_t, int32_t)
-            = LLVMGetPointerToGlobal(engine, sum);
+        funcPtr_t funcPtr = (funcPtr_t)LLVMGetPointerToGlobal(engine, sum);
         printf("%d\n", funcPtr(x,y));
     }
 
